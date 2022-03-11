@@ -4,6 +4,12 @@ import {productTable} from '../src/ejer-1';
 
 
 describe('EJER 1) Tablas de multiplicar', () => {
+  it('n = 0 | Resultado : undefined', () => {
+    expect(productTable(0)).to.be.deep.equal(undefined);
+  });
+  it('n = 1 | Resultado : [[1]]', () => {
+    expect(productTable(1)).to.be.deep.equal([[1]]);
+  });
   it('n = 2 | Resultado : [[1, 2], [2, 4]]', () => {
     expect(productTable(2)).to.be.deep.equal([[1, 2], [2, 4]]);
   });
