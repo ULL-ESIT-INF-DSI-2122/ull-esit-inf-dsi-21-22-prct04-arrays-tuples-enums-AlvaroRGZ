@@ -1,9 +1,9 @@
 
-function convert (char: string): string | undefined {
+function convert(char: string): string | undefined {
   let c: string | undefined = '';
   switch (char) {
-    case 'A' : c = 'U';
-    break;
+    case 'A': c = 'U';
+      break;
     case 'C': c = 'G';
       break;
     case 'G': c = 'C';
@@ -19,9 +19,16 @@ function convert (char: string): string | undefined {
   return c;
 }
 
+/**
+ * Converts a vector of ADN secuences on another
+ * vector with it correspondent ARN secuence
+ * @param v ADN secuences vector
+ * @return An ARN secuences vector or undefined if
+ * any secuence of v is invalid
+ */
 export function adnToArn(v: string[]): string[] | undefined{
   let cadena: string = '';
-  let resultado: string[] = [];
+  const resultado: string[] = [];
   for (let i = 0; i < v.length; i++) {
     cadena = '';
     for (let j = 0; j < v[i].length; j++) {
@@ -39,7 +46,3 @@ export function adnToArn(v: string[]): string[] | undefined{
 export function arnToAdn(v: string[]): string[] | undefined {
   return adnToArn(v);
 }
-
-const cadenas: string[] = ['ACGTGAT', 'TGCACCTTGA', 'ACGT'];
-
-console.log('result: ', adnToArn(cadenas));

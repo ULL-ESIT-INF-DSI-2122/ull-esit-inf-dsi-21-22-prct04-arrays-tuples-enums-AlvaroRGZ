@@ -1,0 +1,6 @@
+{
+  "entryPoints": [
+    "./src/adnToArn.ts"
+  ],
+  "out": "./typedocumentation"
+}

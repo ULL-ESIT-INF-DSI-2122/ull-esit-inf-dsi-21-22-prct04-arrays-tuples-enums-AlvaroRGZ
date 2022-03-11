@@ -23,9 +23,16 @@ function convert(char) {
     }
     return c;
 }
-function adnToArn(v) {
+/**
+ * Converts a vector of ADN secuences on another
+ * vector with it correspondent ARN secuence
+ * @param v ADN secuences vector
+ * @return An ARN secuences vector or undefined if
+ * any secuence of v is invalid
+ */
+export function adnToArn(v) {
     let cadena = '';
-    let resultado = [];
+    const resultado = [];
     for (let i = 0; i < v.length; i++) {
         cadena = '';
         for (let j = 0; j < v[i].length; j++) {
@@ -38,5 +45,6 @@ function adnToArn(v) {
     }
     return resultado;
 }
-const cadenas = ['ACGTGAT', 'TGCACCTTGA', 'ACGT'];
-console.log('result: ', adnToArn(cadenas));
+export function arnToAdn(v) {
+    return adnToArn(v);
+}
