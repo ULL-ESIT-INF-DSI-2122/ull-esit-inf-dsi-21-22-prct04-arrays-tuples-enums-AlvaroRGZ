@@ -2,7 +2,6 @@ import 'mocha';
 import {expect} from 'chai';
 import {PointND} from '../src/ejer-9';
 
-
 describe('EJER 9) Puntos bi-dimensionales', () => {
   const p1 = new PointND([3, 5, 6]);
   const p2 = new PointND([1, 2, 3]);
