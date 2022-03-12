@@ -4,7 +4,7 @@ import {meshArray} from '../src/ejer-4';
 
 
 describe('EJER 4) Decodificar resistencias', () => {
-  it(' [“allow”, “lowering”, “ringmaster”, “terror”] => "lowringter"', () => {
+  it('[“allow”, “lowering”, “ringmaster”, “terror”] => "lowringter"', () => {
     expect(meshArray(['allow', 'lowering', 'ringmaster', 'terror'])).to.be.equal('lowringter');
   });
   it('[“kingdom”, “dominator”, “notorious”, “usual”, “allegory”]  => “Error al encadenar”', () => {
