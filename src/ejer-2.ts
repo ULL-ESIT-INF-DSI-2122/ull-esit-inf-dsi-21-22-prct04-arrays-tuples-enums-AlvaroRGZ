@@ -27,10 +27,3 @@ export function fromArrayToRanges(v: number[]): string | undefined {
   }
   return out;
 }
-
-/*
-
-if (c > 0) {
-        out += ', ';
-      }
-*/
