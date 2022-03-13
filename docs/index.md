@@ -27,7 +27,7 @@ clase:
 Crearemos una funcion que reciba un numero `n >= 1` y devolvera un array de arrays conteniendo `n` tablas
 de multiplicar, cada una con los `n` primeros productos.
 
-```
+``` Typescript
 export function productTable(n: number): number[][] | undefined {
   if (n < 1) {
     return undefined;
