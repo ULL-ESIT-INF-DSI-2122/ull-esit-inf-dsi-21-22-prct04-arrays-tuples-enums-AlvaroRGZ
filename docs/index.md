@@ -360,7 +360,7 @@ export function multiplyAll(v: number[]): Function {
 }
 ```
 **Pruebas**
-```Typescrip
+```Typescript
 describe('EJER 7) Factoría de multiplicaciones', () => {
   it('multiplyAll([2, 6, 8])(3) => [6, 18, 24]', () => {
     expect(multiplyAll([2, 6, 8])(3)).to.be.deep.equal([6, 18, 24]);
@@ -404,7 +404,7 @@ export class Point2D {
 }
 ```
 **Pruebas**
-```Typescrip
+```Typescript
 describe('EJER 8) Puntos bi-dimensionales', () => {
   const p1 = new Point2D(3, 5);
   const p2 = new Point2D(1, 2);
@@ -477,7 +477,7 @@ export class PointND {
 }
 ```
 **Pruebas**
-```Typescrip
+```Typescript
 describe('EJER 9) Puntos N-dimensionales', () => {
   const p1 = new PointND([3, 5, 6]);
   const p2 = new PointND([1, 2, 3]);
@@ -541,7 +541,7 @@ export function paseito(pasos: string[]): boolean | undefined {
 }
 ```
 **Pruebas**
-```Typescrip
+```Typescript
 describe('EJER 10) Paseitos por Cartesia', () => {
   it('("n", "s", "e", "o") => true', () => {
     expect(paseito(['n', 's', 'e', 'o'])).to.be.deep.equal(true);
