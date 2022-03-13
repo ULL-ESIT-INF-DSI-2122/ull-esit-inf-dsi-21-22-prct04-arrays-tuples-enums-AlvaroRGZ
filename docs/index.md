@@ -175,3 +175,34 @@ export function fromRangesToArray(entry: string):number[] | undefined {
   });
 ```
 ![pruebas e2](./images/e2.png)
+
+***
+
+### Ejercicio 3 - Decodificar resistencias
+
+Implementa una traducción de las bandas de colores de las resistencias para calcular su valor real.
+Este valor es igual numero resultante de concatenar el digito asociado al primer color con el del 
+segundo. Si la función recibe más de dos colores, estos serán ignorados.
+
+``` Typescript
+export enum color {negro, marron, rojo, naranja, amarillo, verde, azul, violeta, gris, blanco};
+
+export function decodeResistor(c1: color, c2:color, ...rest): number | undefined {
+  if (( 8 < c1 || c1 < 0) || ( 8 < c2 || c2 < 0)) {
+    return undefined;
+  }
+  return c1 * 10 + c2;
+}
+```
+**Pruebas**
+```Typescript
+describe('EJER 3) Decodificar resistencias', () => {
+  it('marron-verde => 15', () => {
+    expect(decodeResistor(color.marron, color.verde)).to.be.equal(15);
+  });
+  it('marron-verde-violeta => 15', () => {
+    expect(decodeResistor(color.marron, color.verde, color.violeta)).to.be.equal(15);
+  });
+});
+```
+![pruebas e3](./images/e3.png)
