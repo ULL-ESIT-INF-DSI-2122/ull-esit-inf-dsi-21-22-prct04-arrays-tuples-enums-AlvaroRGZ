@@ -1,6 +1,10 @@
 # Práctica 4 - DSI
 ## Arrays, tuplas y enumerados
 
+### Índice
+
+-[Ejercicio 1 - Tablas de multiplicar](e1)
+
 ### Introducción
 
 En este nuevo proyecto, emplearemos un desarrollo dirigido por pruebas (TDD) y estará documentado, para lo 
@@ -37,7 +41,7 @@ clase:
 
 ## Ejercicios
 
-### Ejercicio 1 - Tablas de multiplicar
+### Ejercicio 1 - Tablas de multiplicar<a name="e1"></a>
 
 Crearemos una funcion que reciba un numero `n >= 1` y devolvera un array de arrays conteniendo `n` tablas
 de multiplicar, cada una con los `n` primeros productos.
