@@ -66,3 +66,106 @@ describe('EJER 1) Tablas de multiplicar', () => {
 });
 ```
 ![pruebas e1](./images/e1.png)
+
+***
+
+### Ejercicio 2 - Compresión de números en rangos
+
+Vamos a convertir un array de enteros en una cadena representando los rangos entre estos
+separados por `'_'` y cada uno separado por `','`. Ejemplo:
+ `[5, 6, 7, 9, 12, 13, 14] => “5_7, 9, 12_14”`
+ 
+Para ello recorremos el vector y en cada elemento, guardamos el primero numero en `ini` y vemos si los
+siguientes son consecutivos: `(v[j + 1] == v[j] + 1))`, una vez sepamos cuantos numeros consecutivos
+tenemos, guardamos la posicion del ultimo en `j`, y si son el mismo, añadimos ese numero directamente a
+la cadena resultado, si no (hay un rango), añadimos ese rango desde `ini` hasta `j`.
+
+``` Typescript
+export function fromArrayToRanges(v: number[]): string | undefined {
+  if (v.length < 1) {
+    return undefined;
+  }
+
+  let out: string = '';
+  let j: number = 0;
+  let c: number = 0;
+  for (let i: number = 0; i < v.length; i++) {
+    j = i;
+    let d: number = 0;
+    const ini: string = v[i].toString(); // Guardamos el primer numero del rango
+    while ((j < v.length - 1) && (v[j + 1] == v[j] + 1)) {
+      d++;
+      j++;
+      i++;
+    }
+    if (c > 0) {
+      out += ', ';
+    }
+    if (d > 0) {
+      out += ini + '_' + v[j].toString();
+    } else {
+      out += ini;
+    }
+    c++; // Para la coma
+  }
+  return out;
+}
+```
+**Pruebas**
+```Typescript
+import {fromArrayToRanges, fromRangesToArray} from '../src/ejer-2';
+ describe('fromArrayToRanges', () => {
+    it('[] => undefined', () => {
+      expect(fromArrayToRanges([])).to.be.equal(undefined);
+    });
+    it('[5, 6, 7, 9, 12, 13, 14] => “5_7, 9, 12_14”', () => {
+      expect(fromArrayToRanges([5, 6, 7, 9, 12, 13, 14])).to.be.deep.equal('5_7, 9, 12_14');
+    });
+    it('[-3, -2, -1, 3, 5, 6, 7] => “-3_-1, 3, 5_7”', () => {
+      expect(fromArrayToRanges([-3, -2, -1, 3, 5, 6, 7])).to.be.deep.equal('-3_-1, 3, 5_7');
+    });
+  });
+```
+
+Ademas, también implementaremos el proceso inverso.
+
+``` Typescript
+export function fromRangesToArray(entry: string):number[] | undefined {
+  const cad: string = entry.replace(/ /g, '');
+  const ranges: string[] = cad.split(',');
+  const output: number[] = [];
+
+  if (cad.length < 1) {
+    return undefined;
+  }
+
+  for (let i: number = 0; i < ranges.length; i++) {
+    if (ranges[i].includes('_')){
+      const n1: number = parseInt(ranges[i].split('_')[0]);
+      const n2: number = parseInt(ranges[i].split('_')[1]);
+      for (let i: number = n1; i <= n2; i++) {
+        output.push(i);
+      }
+    } else {
+      output.push(parseInt(ranges[i]));
+    }
+  }
+
+  return output;
+}
+```
+**Pruebas**
+```Typescript
+  describe('fromRangesToArray', () => {
+    it('"" => undefined', () => {
+      expect(fromArrayToRanges([])).to.be.equal(undefined);
+    });
+    it('“5_7, 9, 12_14” => [5, 6, 7, 9, 12, 13, 14]', () => {
+      expect(fromRangesToArray('5_7, 9, 12_14')).to.be.deep.equal([5, 6, 7, 9, 12, 13, 14]);
+    });
+    it('“-3_-1, 3, 5_7” => [-3, -2, -1, 3, 5, 6, 7]', () => {
+      expect(fromRangesToArray('-3_-1, 3, 5_7')).to.be.deep.equal([-3, -2, -1, 3, 5, 6, 7]);
+    });
+  });
+```
+![pruebas e2](./images/e2.png)
