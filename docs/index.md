@@ -48,31 +48,24 @@ export function productTable(n: number): number[][] | undefined {
 ```
 **Pruebas**
 ```Typescript
-import {fromArrayToRanges, fromRangesToArray} from '../src/ejer-2';
+import {productTable} from '../src/ejer-1';
 
 
-describe('EJER 2) Compresión de números en rangos', () => {
-  describe('fromArrayToRanges', () => {
-    it('[] => undefined', () => {
-      expect(fromArrayToRanges([])).to.be.equal(undefined);
-    });
-    it('[5, 6, 7, 9, 12, 13, 14] => “5_7, 9, 12_14”', () => {
-      expect(fromArrayToRanges([5, 6, 7, 9, 12, 13, 14])).to.be.deep.equal('5_7, 9, 12_14');
-    });
-    it('[-3, -2, -1, 3, 5, 6, 7] => “-3_-1, 3, 5_7”', () => {
-      expect(fromArrayToRanges([-3, -2, -1, 3, 5, 6, 7])).to.be.deep.equal('-3_-1, 3, 5_7');
-    });
+describe('EJER 1) Tablas de multiplicar', () => {
+  it('n = 0 | Resultado : undefined', () => {
+    expect(productTable(0)).to.be.deep.equal(undefined);
   });
-  describe('fromRangesToArray', () => {
-    it('"" => undefined', () => {
-      expect(fromArrayToRanges([])).to.be.equal(undefined);
-    });
-    it('“5_7, 9, 12_14” => [5, 6, 7, 9, 12, 13, 14]', () => {
-      expect(fromRangesToArray('5_7, 9, 12_14')).to.be.deep.equal([5, 6, 7, 9, 12, 13, 14]);
-    });
-    it('“-3_-1, 3, 5_7” => [-3, -2, -1, 3, 5, 6, 7]', () => {
-      expect(fromRangesToArray('-3_-1, 3, 5_7')).to.be.deep.equal([-3, -2, -1, 3, 5, 6, 7]);
-    });
+  it('n = 1 | Resultado : [[1]]', () => {
+    expect(productTable(1)).to.be.deep.equal([[1]]);
+  });
+  it('n = 2 | Resultado : [[1, 2], [2, 4]]', () => {
+    expect(productTable(2)).to.be.deep.equal([[1, 2], [2, 4]]);
+  });
+  it('n = 3 | Resultado : [[1, 2, 3], [2, 4, 6], [3, 6, 9]]', () => {
+    expect(productTable(3)).to.deep.equal([[1, 2, 3], [2, 4, 6], [3, 6, 9]]);
+  });
+  it('n = 4 | Resultado : [[1, 2, 3, 4], [2, 4, 6, 8], [3, 6, 9, 12], [4, 8, 12, 16]]', () => {
+    expect(productTable(4)).to.deep.equal([[1, 2, 3, 4], [2, 4, 6, 8], [3, 6, 9, 12], [4, 8, 12, 16]]);
   });
 });
 ```
