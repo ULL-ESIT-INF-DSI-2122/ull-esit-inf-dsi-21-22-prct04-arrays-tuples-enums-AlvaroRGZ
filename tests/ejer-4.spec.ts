@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {meshArray} from '../src/ejer-4';
 
 
-describe('EJER 4) Decodificar resistencias', () => {
+describe('EJER 4) Palabras encadenadas en array', () => {
   it('[“allow”, “lowering”, “ringmaster”, “terror”] => "lowringter"', () => {
     expect(meshArray(['allow', 'lowering', 'ringmaster', 'terror'])).to.be.equal('lowringter');
   });

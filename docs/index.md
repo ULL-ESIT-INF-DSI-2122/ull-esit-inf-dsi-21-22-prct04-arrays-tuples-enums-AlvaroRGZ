@@ -6,8 +6,23 @@
 En este nuevo proyecto, emplearemos un desarrollo dirigido por pruebas (TDD) y estará documentado, para lo 
 que vamos a valernos de tres herramientas para llevarlo a cabo:
 
-* [Typedoc](https://typedoc.org/): para realizar la documentación automática de nuestro codigo.
 * [Mocha](https://mochajs.org/) y [Chai](https://www.chaijs.com/): para incorporar TDD.
+* [Typedoc](https://typedoc.org/): para realizar la documentación automática de nuestro codigo.
+
+Para que `Typedoc` funcione, todas las funciones que aparecen en esta practica disponen de un comentario en la parte
+superior de la siguiente forma:
+
+```Typescript
+/**
+ * Devuelve un array de arrays con n tablas de multiplicar,
+ * donde cada tabla de multiplicar contiene los primeros n
+ * productos.
+ * @param n número de tablas de multiplicar. n >= 1
+ * @return number[][] conteniendo las tablas generadas
+ * o undefined si n < 1
+ */
+```
+**Comentario superior de la funcion nº1 `productTable`**
 
 Continuaremos con la misma estructura de directorios basada en las anteriores prácticas, añadiendo el nuevo
 directorio `test` para alojar las expectativas del código y `Typedocumentation` para almacenar la
