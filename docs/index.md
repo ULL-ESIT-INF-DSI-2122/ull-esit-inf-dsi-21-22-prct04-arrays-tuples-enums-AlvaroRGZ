@@ -49,8 +49,8 @@ clase:
 * [Arrays, tuplas y enumerados](https://ull-esit-inf-dsi-2122.github.io/typescript-theory/typescript-arrays-tuples-enums.html)
 
 ## Ejercicios
-
-### Ejercicio 1 - Tablas de multiplicar<a name="e1"></a>
+<a name="e1"></a>
+### Ejercicio 1 - Tablas de multiplicar
 
 Crearemos una funcion que reciba un numero `n >= 1` y devolvera un array de arrays conteniendo `n` tablas
 de multiplicar, cada una con los `n` primeros productos.
