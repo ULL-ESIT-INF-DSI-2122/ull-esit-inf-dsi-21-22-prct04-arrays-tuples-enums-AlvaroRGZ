@@ -374,7 +374,9 @@ describe('EJER 7) Factoría de multiplicaciones', () => {
 ### Ejercicio 8 - Puntos bi-dimensionales
 
 Queremos poder representar un punto de la siguiente manera en nuestro codigo:
+
 > Point(2,3);
+
 Como vemos, seria la llamada a un constructor, asi que implementaremos una clase para representar este tipo de dato, ademas de tres metodos:
 * Suma: con otro punto.
 * Resta: con otro punto.
@@ -430,7 +432,9 @@ describe('EJER 8) Puntos bi-dimensionales', () => {
 
 Esta vez, en addicion al ejemplo anterior, queremos definir un punto con las dimensiones
 que el usuario desee:
+
 > Point([1,2,3,4]);
+
 La solucion propuesta es similar al enunciado anterior pero en este caso recibiendo un vector
 como parametro. E implementa las mismas operaciones, solo entre puntos de la misma dimension.
 
