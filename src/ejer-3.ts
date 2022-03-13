@@ -14,7 +14,7 @@ export enum color {negro, marron, rojo, naranja, amarillo, verde, azul, violeta,
  * @param ...rest resto de colores a ignorar
  * @return valor de la resistencia
  */
-export function decodeResistor(c1: color, c2:color, ...rest): number | undefined {
+export function decodeResistor(c1: color, c2:color, ...rest: number[]): number | undefined {
   if (( 8 < c1 || c1 < 0) || ( 8 < c2 || c2 < 0)) {
     return undefined;
   }

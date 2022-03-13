@@ -28,5 +28,5 @@ export function paseito(pasos: string[]): boolean | undefined {
         return undefined;
     }
   }
-  return ((x + y) == 0) ? true : false;
+  return ((x == 0) && (y == 0)) ? true : false;
 }

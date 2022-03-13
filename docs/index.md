@@ -257,3 +257,303 @@ describe('EJER 4) Palabras encadenadas en array', () => {
 });
 ```
 ![pruebas e4](./images/e4.png)
+
+***
+
+### Ejercicio 5 - Calcular la media y concatenar cadenas
+
+El metodo recibe un vector de enteros y cadenas como parametro y devuelve un vector de dos
+elementos:
+
+* 1) El resultado de la media de todos los numeros
+* 2) La cadena resultante de concatenar todas las cadenas
+ 
+Recorre el vector de entrada leyendo cada elemento, va sumando los numeros y concatenando las
+cadenas. Una vez acabado devuelve el vector con la media y la concatenación.
+
+``` Typescript
+export function meanAndConcatenate(v: (number | string)[]): (number | string)[] {
+  let rNums: number = 0;
+  let cNums: number = 0;
+  let rStrings: string = '';
+  for (let i: number = 0; i < v.length; i++) {
+    if (typeof v[i] == 'number') {
+      rNums += v[i] as number;
+      cNums++;
+    } else if (typeof v[i] == 'string') {
+      rStrings += v[i] as string;
+    }
+  }
+  return [rNums/cNums, rStrings];
+}
+```
+**Pruebas**
+```Typescript
+describe('EJER 5) Calcular la media y concatenar cadenas', () => {
+  it('["u", 6, "d", 1, "i", "w", 6, "s", "t", 4, "a", 6, "g", 1, 2, "w", 8, "o", 2, 0] => [3.6, "udiwstagwo"]', () => {
+    expect(meanAndConcatenate(['u', 6, 'd', 1, 'i', 'w', 6, 's', 't', 4, 'a', 6, 'g', 1, 2, 'w', 8, 'o', 2, 0])).to.be.deep.equal([3.6, 'udiwstagwo']);
+  });
+});
+```
+![pruebas e5](./images/e5.png)
+
+***
+
+### Ejercicio 6 - Mover zeros al final
+
+La funcion recibe un vector de enteros por parametro y lo recorre contando
+y eliminando los `0` que aparecen, para mas adelante añadirlos al final.
+De esta manera generamos un vector que tendra sus elementos ordenados
+menos los `0` que estarán al final.
+
+``` Typescript
+export function moveZeros(v: number[]): number[] {
+  const out: number[] = [];
+  let nZeros: number = 0;
+  for (let i: number = 0; i < v.length; i++) {
+    if (v[i] == 0){
+      nZeros++;
+    } else {
+      out.push(v[i]);
+    }
+  }
+  for (let i: number = 0; i < nZeros; i++) {
+    out.push(0);
+  }
+  return out;
+}
+```
+**Pruebas**
+```Typescript
+describe('EJER 6) Mover zeros al final', () => {
+  it('[1, 0, 1, 2, 0, 1, 3] => [1, 1, 2, 1, 3, 0, 0]', () => {
+    expect(moveZeros([1, 0, 1, 2, 0, 1, 3])).to.be.deep.equal([1, 1, 2, 1, 3, 0, 0]);
+  });
+
+  it('[6, 3, 0, 0, 5, 0, 9] => [6, 3, 5, 9, 0, 0, 0]', () => {
+    expect(moveZeros([6, 3, 0, 0, 5, 0, 9])).to.be.deep.equal([6, 3, 5, 9, 0, 0, 0]);
+  });
+});
+```
+![pruebas e6](./images/e6.png)
+
+*** 
+
+### Ejercicio 7 - Factoría de multiplicaciones
+
+La funcion recibe un vector de numeros y debe devolver una funcion que reciba un numero y
+devuelva un vector resultado de multiplicar los elementos del vector de la primera funcion.
+
+Simplemente la funcion `multiplyAll` implementa la función dentro de sí misma y esta obtiene
+acceso al vector recibido por parametro inicialmente.
+
+``` Typescript
+export function multiplyAll(v: number[]): Function {
+  function multiply(n: number): number[] {
+    const r: number[] = [];
+    for (let i: number = 0; i < v.length; i++) {
+      r.push(v[i]*n);
+    }
+    return r;
+  }
+  return multiply;
+}
+```
+**Pruebas**
+```Typescrip
+describe('EJER 7) Factoría de multiplicaciones', () => {
+  it('multiplyAll([2, 6, 8])(3) => [6, 18, 24]', () => {
+    expect(multiplyAll([2, 6, 8])(3)).to.be.deep.equal([6, 18, 24]);
+  });
+});
+```
+![pruebas e7](./images/e7.png)
+
+*** 
+
+### Ejercicio 8 - Puntos bi-dimensionales
+
+Queremos poder representar un punto de la siguiente manera en nuestro codigo:
+> Point(2,3);
+Como vemos, seria la llamada a un constructor, asi que implementaremos una clase para representar este tipo de dato, ademas de tres metodos:
+* Suma: con otro punto.
+* Resta: con otro punto.
+* Producto estalar: por un numero.
+* Distancia euclidiana: con otro punto.
+
+``` Typescript
+export class Point2D {
+  x: number;
+  y: number;
+  constructor(x: number, y: number){
+    this.x = x;
+    this.y = y;
+  }
+  sum(other: Point2D): Point2D {
+    return new Point2D(this.x+other.x, this.y+other.y);
+  }
+  diff(other: Point2D): Point2D {
+    return new Point2D(this.x-other.x, this.y-other.y);
+  }
+  pruduct(n: number): Point2D {
+    return new Point2D(this.x*n, this.y*n);
+  }
+  euclidean(other: Point2D): number {
+    return Math.abs(this.x-other.x) + Math.abs(this.y-other.y);
+  }
+}
+```
+**Pruebas**
+```Typescrip
+describe('EJER 8) Puntos bi-dimensionales', () => {
+  const p1 = new Point2D(3, 5);
+  const p2 = new Point2D(1, 2);
+  it('Point2D(3,5) + Point2D(1,2) => Point2D(4,7)', () => {
+    expect(p1.sum(p2)).to.be.deep.equal(new Point2D(4, 7));
+  });
+  it('Point2D(3,5) - Point2D(1,2) => Point2D(2,3)', () => {
+    expect(p1.diff(p2)).to.be.deep.equal(new Point2D(2, 3));
+  });
+  it('Point2D(3,5) * 3 => Point2D(9,15)', () => {
+    expect(p1.pruduct(3)).to.be.deep.equal(new Point2D(9, 15));
+  });
+  it('Point2D(3,5) euclidean Point2D(1, 2) => 5', () => {
+    expect(p1.euclidean(p2)).to.be.deep.equal(5);
+  });
+});
+```
+![pruebas e8](./images/e8.png)
+
+*** 
+
+### Ejercicio 9 - Puntos N-dimensionales
+
+Esta vez, en addicion al ejemplo anterior, queremos definir un punto con las dimensiones
+que el usuario desee:
+> Point([1,2,3,4]);
+La solucion propuesta es similar al enunciado anterior pero en este caso recibiendo un vector
+como parametro. E implementa las mismas operaciones, solo entre puntos de la misma dimension.
+
+``` Typescript
+export class PointND {
+  coords: number[];
+  constructor(coordinates: number[], ...rest: number[]){
+    this.coords = coordinates;
+  }
+  sum(other: PointND): PointND | undefined {
+    if (this.coords.length != other.coords.length) {
+      return undefined;
+    }
+    const r: number[] = [];
+    for (let i: number = 0; i < this.coords.length; i++) {
+      r.push(this.coords[i] + other.coords[i]);
+    }
+    return new PointND(r);
+  }
+  diff(other: PointND): PointND | undefined {
+    if (this.coords.length != other.coords.length) {
+      return undefined;
+    }
+    const r: number[] = [];
+    for (let i: number = 0; i < this.coords.length; i++) {
+      r.push(this.coords[i] - other.coords[i]);
+    }
+    return new PointND(r);
+  }
+  product(n: number): PointND {
+    const r: number[] = [];
+    for (let i: number = 0; i < this.coords.length; i++) {
+      r.push(this.coords[i] * n);
+    }
+    return new PointND(r);
+  }
+  euclidean(other: PointND): number {
+    let value: number = 0;
+    for (let i: number = 0; i < this.coords.length; i++) {
+      value += Math.abs(this.coords[i]- other.coords[i]);
+    }
+    return value;
+  }
+}
+```
+**Pruebas**
+```Typescrip
+describe('EJER 9) Puntos N-dimensionales', () => {
+  const p1 = new PointND([3, 5, 6]);
+  const p2 = new PointND([1, 2, 3]);
+  it('PointND([3, 5, 6]) + PointND([1, 2]) => undefined', () => {
+    expect(p1.sum(new PointND([1, 2]))).to.be.deep.equal(undefined);
+  });
+  it('PointND([3, 5, 6]) + PointND([1, 2, 3]) => PointND([4, 7, 9])', () => {
+    expect(p1.sum(p2)).to.be.deep.equal(new PointND([4, 7, 9]));
+  });
+  it('PointND([3, 5, 6]) - PointND([1, 2, 3]) => PointND([2, 3, 3])', () => {
+    expect(p1.diff(p2)).to.be.deep.equal(new PointND([2, 3, 3]));
+  });
+  it('PointND([3, 5, 6]) * 3 => PointND([9, 15, 18])', () => {
+    expect(p1.product(3)).to.be.deep.equal(new PointND([9, 15, 18]));
+  });
+  it('PointND([3, 5, 6]) euclidean PointND([1, 2, 3]) => 8', () => {
+    expect(p1.euclidean(p2)).to.be.deep.equal(8);
+  });
+});
+```
+![pruebas e9](./images/e9.png)
+
+*** 
+
+### Ejercicio 10 - El Cartesiano
+
+Esta función calculara si despues de una serie de movimientos, volvemos
+al punto de partida. Recibe un vector de caracteres que reporesentan los
+pasos y las direcciones en las que se realizan, con dos variables almacenando
+la posicion horizontal y vertical y un `switch` con el que vamos tratando
+cada elemento del vector vamos modificando estas variables para comprobar
+al final si estan como al principio o no. El metodo comprueba tanto que
+el paseo sea de 1 a 10 minutos y que no hayan movimientos extraños.
+
+``` Typescript
+export function paseito(pasos: string[]): boolean | undefined {
+  if (pasos.length < 1) {
+    return undefined;
+  }
+  let x: number = 0;
+  let y: number = 0;
+  for (let i: number = 0; i < pasos.length && i < 10; i++) {
+    switch (pasos[i]) {
+      case 'n':
+        y++;
+        break;
+      case 's':
+        y--;
+        break;
+      case 'e':
+        x++;
+        break;
+      case 'o':
+        x--;
+        break;
+      default:
+        return undefined;
+    }
+  }
+  return ((x == 0) && (y == 0)) ? true : false;
+}
+```
+**Pruebas**
+```Typescrip
+describe('EJER 10) Paseitos por Cartesia', () => {
+  it('("n", "s", "e", "o") => true', () => {
+    expect(paseito(['n', 's', 'e', 'o'])).to.be.deep.equal(true);
+  });
+  it('("n", "s", "e", "o", "n") => false', () => {
+    expect(paseito(['n', 's', 'e', 'o', 'n'])).to.be.deep.equal(false);
+  });
+  it('("n", "s", "e", "o", "d") => undefined', () => {
+    expect(paseito(['n', 's', 'e', 'o', 'n', 'd'])).to.be.deep.equal(undefined);
+  });
+});
+```
+![pruebas e10](./images/e10.png)
+
+*** 
