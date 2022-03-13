@@ -1,9 +1,18 @@
 # Práctica 4 - DSI
 ## Arrays, tuplas y enumerados
 
-### Índice
+### Índice de ejercicios
 
--[Ejercicio 1 - Tablas de multiplicar](#e1)
+-[Ejercicio 1  - Tablas de multiplicar](#e1)
+-[Ejercicio 2  - Compresión de números en rangos](#e2)
+-[Ejercicio 3  - Decodificar resistencias](#e3)
+-[Ejercicio 4  - Palabras encadenadas en un array](#e4)
+-[Ejercicio 5  - Calcular la media y concatenar cadenas](#e5)
+-[Ejercicio 6  - Mover zeros al final](#e6)
+-[Ejercicio 7  - Factoría de multiplicaciones](#e7)
+-[Ejercicio 8  - Puntos bi-dimensionales](#e8)
+-[Ejercicio 9  - Puntos N-dimensionales](#e9)
+-[Ejercicio 10 - El Cartesiano](#e10)
 
 ### Introducción
 
@@ -88,7 +97,7 @@ describe('EJER 1) Tablas de multiplicar', () => {
 
 ***
 
-### Ejercicio 2 - Compresión de números en rangos
+### Ejercicio 2 - Compresión de números en rangos<a name="e2"></a>
 
 Vamos a convertir un array de enteros en una cadena representando los rangos entre estos
 separados por `'_'` y cada uno separado por `','`. Ejemplo:
@@ -197,7 +206,7 @@ export function fromRangesToArray(entry: string):number[] | undefined {
 
 ***
 
-### Ejercicio 3 - Decodificar resistencias
+### Ejercicio 3 - Decodificar resistencias<a name="e3"></a>
 
 Implementa una traducción de las bandas de colores de las resistencias para calcular su valor real.
 Este valor es igual numero resultante de concatenar el digito asociado al primer color con el del 
@@ -228,7 +237,7 @@ describe('EJER 3) Decodificar resistencias', () => {
 
 *** 
 
-### Ejercicio 4 - Palabras encadenadas en un array
+### Ejercicio 4 - Palabras encadenadas en un array<a name="e4"></a>
 
 Implentaremos una función que comprueba si las cadenas de un array de cadenas son encadenadas,
 es decir, una parte del final de cada palabra es igual que otra parte del inicio de la siguiente
@@ -279,7 +288,7 @@ describe('EJER 4) Palabras encadenadas en array', () => {
 
 ***
 
-### Ejercicio 5 - Calcular la media y concatenar cadenas
+### Ejercicio 5 - Calcular la media y concatenar cadenas<a name="e5"></a>
 
 El metodo recibe un vector de enteros y cadenas como parametro y devuelve un vector de dos
 elementos:
@@ -318,7 +327,7 @@ describe('EJER 5) Calcular la media y concatenar cadenas', () => {
 
 ***
 
-### Ejercicio 6 - Mover zeros al final
+### Ejercicio 6 - Mover zeros al final<a name="e6"></a>
 
 La funcion recibe un vector de enteros por parametro y lo recorre contando
 y eliminando los `0` que aparecen, para mas adelante añadirlos al final.
@@ -358,7 +367,7 @@ describe('EJER 6) Mover zeros al final', () => {
 
 *** 
 
-### Ejercicio 7 - Factoría de multiplicaciones
+### Ejercicio 7 - Factoría de multiplicaciones<a name="e7"></a>
 
 La funcion recibe un vector de numeros y debe devolver una funcion que reciba un numero y
 devuelva un vector resultado de multiplicar los elementos del vector de la primera funcion.
@@ -390,7 +399,7 @@ describe('EJER 7) Factoría de multiplicaciones', () => {
 
 *** 
 
-### Ejercicio 8 - Puntos bi-dimensionales
+### Ejercicio 8 - Puntos bi-dimensionales<a name="e8"></a>
 
 Queremos poder representar un punto de la siguiente manera en nuestro codigo:
 
@@ -447,7 +456,7 @@ describe('EJER 8) Puntos bi-dimensionales', () => {
 
 *** 
 
-### Ejercicio 9 - Puntos N-dimensionales
+### Ejercicio 9 - Puntos N-dimensionales<a name="e9"></a>
 
 Esta vez, en addicion al ejemplo anterior, queremos definir un punto con las dimensiones
 que el usuario desee:
@@ -525,7 +534,7 @@ describe('EJER 9) Puntos N-dimensionales', () => {
 
 *** 
 
-### Ejercicio 10 - El Cartesiano
+### Ejercicio 10 - El Cartesiano<a name="e10"></a>
 
 Esta función calculara si despues de una serie de movimientos, volvemos
 al punto de partida. Recibe un vector de caracteres que reporesentan los
