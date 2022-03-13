@@ -211,11 +211,49 @@ describe('EJER 3) Decodificar resistencias', () => {
 
 ### Ejercicio 4 - Palabras encadenadas en un array
 
+Implentaremos una función que comprueba si las cadenas de un array de cadenas son encadenadas,
+es decir, una parte del final de cada palabra es igual que otra parte del inicio de la siguiente
+y devuelva una string resultado de concatenar todas estas partes iguales.
 
+El metodo recorre cada palabra para compararla con la siguiente 
 
 ``` Typescript
+export function meshArray(v: string[]): string {
+  let out: string = '';
+  for (let i: number = 0; i < v.length - 1; i++) {
+    const aLen: number = v[i].length;
+    const nLen: number = v[i + 1].length;
+    let aux: string = '';
+    let Match: boolean = false;
+
+    if (aLen == 0 || nLen == 0) {
+      return 'Error al encadenar';
+    }
+    const size: number = Math.min(aLen, nLen);
+    for (let j: number = size; j >= 0 && !Match; j--) {
+      if (v[i].substring(aLen - j) == v[i+1].substring(0, j)) {
+        Match = true;
+        aux = v[i].substring(aLen - j);
+      }
+    }
+    if (aux.length == 0) {
+      return 'Error al encadenar';
+    } else {
+      out += aux;
+    }
+  }
+  return out;
+}
 ```
 **Pruebas**
 ```Typescript
+describe('EJER 4) Palabras encadenadas en array', () => {
+  it('[“allow”, “lowering”, “ringmaster”, “terror”] => "lowringter"', () => {
+    expect(meshArray(['allow', 'lowering', 'ringmaster', 'terror'])).to.be.equal('lowringter');
+  });
+  it('[“kingdom”, “dominator”, “notorious”, “usual”, “allegory”]  => “Error al encadenar”', () => {
+    expect(meshArray(['kingdom', 'dominator', 'notorious', 'usual', 'allegory'])).to.be.equal('Error al encadenar');
+  });
+});
 ```
 ![pruebas e4](./images/e4.png)
