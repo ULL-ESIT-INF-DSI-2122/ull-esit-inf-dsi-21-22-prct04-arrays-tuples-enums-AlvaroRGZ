@@ -209,47 +209,13 @@ describe('EJER 3) Decodificar resistencias', () => {
 
 *** 
 
-### Ejercicio 1 - Tablas de multiplicar
+### Ejercicio 4 - Palabras encadenadas en un array
 
-Crearemos una funcion que reciba un numero `n >= 1` y devolvera un array de arrays conteniendo `n` tablas
-de multiplicar, cada una con los `n` primeros productos.
+
 
 ``` Typescript
-export function productTable(n: number): number[][] | undefined {
-  if (n < 1) {
-    return undefined;
-  }
-  const result: number[][] = [];
-  for (let i: number = 1; i <= n; i++) {
-    const aux: number[] = [];
-    for (let j: number = 1; j <= n; j++) {
-      aux.push(i*j);
-    }
-    result.push(aux);
-  }
-  return result;
-}
 ```
 **Pruebas**
 ```Typescript
-import {productTable} from '../src/ejer-1';
-
-describe('EJER 1) Tablas de multiplicar', () => {
-  it('n = 0 | Resultado : undefined', () => {
-    expect(productTable(0)).to.be.deep.equal(undefined);
-  });
-  it('n = 1 | Resultado : [[1]]', () => {
-    expect(productTable(1)).to.be.deep.equal([[1]]);
-  });
-  it('n = 2 | Resultado : [[1, 2], [2, 4]]', () => {
-    expect(productTable(2)).to.be.deep.equal([[1, 2], [2, 4]]);
-  });
-  it('n = 3 | Resultado : [[1, 2, 3], [2, 4, 6], [3, 6, 9]]', () => {
-    expect(productTable(3)).to.deep.equal([[1, 2, 3], [2, 4, 6], [3, 6, 9]]);
-  });
-  it('n = 4 | Resultado : [[1, 2, 3, 4], [2, 4, 6, 8], [3, 6, 9, 12], [4, 8, 12, 16]]', () => {
-    expect(productTable(4)).to.deep.equal([[1, 2, 3, 4], [2, 4, 6, 8], [3, 6, 9, 12], [4, 8, 12, 16]]);
-  });
-});
 ```
-![pruebas e1](./images/e1.png)
+![pruebas e4](./images/e4.png)
