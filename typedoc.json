@@ -1,6 +1,16 @@
 {
   "entryPoints": [
-    "./src/adnToArn.ts"
+    "./src/adnToArn.ts",
+    "./src/ejer-1.ts",
+    "./src/ejer-2.ts",
+    "./src/ejer-3.ts",
+    "./src/ejer-4.ts",
+    "./src/ejer-5.ts",
+    "./src/ejer-6.ts",
+    "./src/ejer-7.ts",
+    "./src/ejer-8.ts",
+    "./src/ejer-9.ts",
+    "./src/ejer-x.ts"
   ],
   "out": "./typedocumentation"
 }

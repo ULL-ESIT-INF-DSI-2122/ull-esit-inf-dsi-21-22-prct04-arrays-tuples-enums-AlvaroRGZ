@@ -1,3 +1,11 @@
+/**
+ * Comprueba si las cadenas de una array estan encadenadas
+ *
+ * @param v vector de cadenas
+ * @return cadena resultado de concatenar todos ls encadenamientos
+ * de las palabras del vector o "Error al encadenar" si alguna
+ * palabra no se ha podido encadenar
+ */
 export function meshArray(v: string[]): string {
   let out: string = '';
   for (let i: number = 0; i < v.length - 1; i++) {

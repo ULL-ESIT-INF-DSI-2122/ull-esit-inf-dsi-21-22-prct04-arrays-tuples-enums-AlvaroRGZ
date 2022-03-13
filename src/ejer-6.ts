@@ -1,3 +1,10 @@
+/**
+ * Mueve todos los 0 al final del vector manteniendo el resto de
+ * elementos ordenados.
+ * @param v vector de numeros
+ * @return vector de numeros en el mismo orden inicial, pero con
+ * todos los 0 al final.
+ */
 export function moveZeros(v: number[]): number[] {
   const out: number[] = [];
   let nZeros: number = 0;
