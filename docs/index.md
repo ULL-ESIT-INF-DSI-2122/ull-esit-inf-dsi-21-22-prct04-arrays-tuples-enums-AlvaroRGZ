@@ -4,23 +4,14 @@
 ### Índice de ejercicios
 
 -[Ejercicio 1  - Tablas de multiplicar](#e1)
-
 -[Ejercicio 2  - Compresión de números en rangos](#e2)
-
 -[Ejercicio 3  - Decodificar resistencias](#e3)
-
 -[Ejercicio 4  - Palabras encadenadas en un array](#e4)
-
 -[Ejercicio 5  - Calcular la media y concatenar cadenas](#e5)
-
 -[Ejercicio 6  - Mover zeros al final](#e6)
-
 -[Ejercicio 7  - Factoría de multiplicaciones](#e7)
-
 -[Ejercicio 8  - Puntos bi-dimensionales](#e8)
-
 -[Ejercicio 9  - Puntos N-dimensionales](#e9)
-
 -[Ejercicio 10 - El Cartesiano](#e10)
 
 
