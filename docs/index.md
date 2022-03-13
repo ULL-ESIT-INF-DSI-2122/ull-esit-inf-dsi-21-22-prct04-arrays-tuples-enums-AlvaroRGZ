@@ -32,9 +32,7 @@ export function productTable(n: number): number[][] | undefined {
   if (n < 1) {
     return undefined;
   }
-
   const result: number[][] = [];
-
   for (let i: number = 1; i <= n; i++) {
     const aux: number[] = [];
     for (let j: number = 1; j <= n; j++) {
@@ -42,14 +40,12 @@ export function productTable(n: number): number[][] | undefined {
     }
     result.push(aux);
   }
-
   return result;
 }
 ```
 **Pruebas**
 ```Typescript
 import {productTable} from '../src/ejer-1';
-
 
 describe('EJER 1) Tablas de multiplicar', () => {
   it('n = 0 | Resultado : undefined', () => {
