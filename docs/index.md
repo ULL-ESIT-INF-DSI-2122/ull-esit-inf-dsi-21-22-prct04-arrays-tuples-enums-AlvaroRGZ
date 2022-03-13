@@ -47,7 +47,7 @@ export function productTable(n: number): number[][] | undefined {
 }
 ```
 **Pruebas**
-```
+```Typescript
 import {fromArrayToRanges, fromRangesToArray} from '../src/ejer-2';
 
 
@@ -76,3 +76,4 @@ describe('EJER 2) Compresión de números en rangos', () => {
   });
 });
 ```
+![pruebas e1](./images/e1.png)
