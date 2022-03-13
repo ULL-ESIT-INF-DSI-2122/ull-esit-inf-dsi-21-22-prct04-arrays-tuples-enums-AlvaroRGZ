@@ -3,7 +3,7 @@
 
 ### Índice
 
--[Ejercicio 1 - Tablas de multiplicar](e1)
+-[Ejercicio 1 - Tablas de multiplicar](#e1)
 
 ### Introducción
 
