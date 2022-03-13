@@ -127,7 +127,13 @@ import {fromArrayToRanges, fromRangesToArray} from '../src/ejer-2';
   });
 ```
 
-Ademas, también implementaremos el proceso inverso.
+Ademas, también implementaremos el proceso inverso, en el que trataremos la cadena de entrada
+para separar cada rango por `','` e introducirlos en un vector.
+Para cada rango `v[i]` una `string`. Comprobamos si incluye el caracter `'_'`:
+* Si tiene: obtenemos las cadenas a cada lado del `'_'` , las transformamos en numeros y con
+  un bucle introducimos todos los numeros includos en ese rango en el vector resultado.
+* Si mo tiene: es un rango unitario, simplemente convertimos la cadena en un numero y lo
+  incluimos al vector.
 
 ``` Typescript
 export function fromRangesToArray(entry: string):number[] | undefined {
